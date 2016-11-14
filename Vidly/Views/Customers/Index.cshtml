@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Vidly.BusinessLogic.Entities.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+
+@if (@Model.ToList().Count == 0)
+{
+    <text>No customers were found!</text>
+    ViewData["Empty"] = "yes";
+}
+else
+{
+    <table style="width: 30%">
+        <tr>
+            <th>Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+        </tr>
+
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Id</td>
+                <td>@Html.ActionLink(customer.FirstName, "Details", "Customers", new { id = customer.Id }, null)</td>
+                <td>@customer.LastName</td>
+            </tr>
+        }
+
+    </table>
+}
+
+<h2>Add new customer</h2>
+
+<button onclick="location.href='@Url.Action("Create", "Customers")';return false;">Add new customer</button>
+

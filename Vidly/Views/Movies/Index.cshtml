@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Vidly.BusinessLogic.Entities.Movie>
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Movies</h2>
+
+@if (@Model.ToList().Count == 0)
+{
+    <text>No movies were found!</text>
+}
+else
+{
+    <table style="width: 30%">
+        <tr>
+            <th>Name</th>
+            <th>Score</th>
+        </tr>
+        @foreach (var movie in Model)
+        {
+            <tr>
+                <td>@movie.Name</td>
+                <td>@movie.Score</td>
+            </tr>
+        }
+    </table>
+}

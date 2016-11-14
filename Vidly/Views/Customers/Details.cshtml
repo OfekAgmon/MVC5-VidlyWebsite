@@ -1,0 +1,9 @@
+﻿@model Vidly.BusinessLogic.Entities.Customer
+
+@{
+    ViewBag.Title = Model.FirstName + " " + Model.LastName;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.ToString()</h2>
+
