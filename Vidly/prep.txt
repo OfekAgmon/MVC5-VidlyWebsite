@@ -1,0 +1,28 @@
+﻿Tools -> Extensions and updates -> Visual studio productivity power tools
+Tools -> Extensions and updates -> Web essentials 
+
+
+
+
+File -> New -> Project -> c# -> web -> ASP.NET web application -> choose MVC (uncheck host in cloud). Chooes No authentication.
+
+
+Solution left click -> manage nuget packages -> search int nuget.org -> install unity.mvc or unity bootstrapper for ASP>NET MVC. 
+
+
+Config dependencies in App_Start/UnityConfig.
+
+
+Class library project
+Add project to solution -> class library -> {ProjectName}.BusinessLogic.
+Add reference to class library project in main project. Set main project as startUpProject.
+To class library project, add reference to DataAnnotations.
+
+
+Test project
+Add project to solution -> test/unit test project -> {ProjectName}.Tests.
+Add to Tests project reference to the main mvc project.
+Tests Solution left click -> manage nuget packages -> Microsoft.AspNet.Mvc.
+Tests Solution left click -> manage nuget packages -> Moq
+Test method should not use ioc container, but mock behavior of objects and test end cases - empty results, etc..
+to run the test, simply select Test->Windows->Test Explorer. (if its empty, add [TestClass] annotation to class).
